@@ -7,11 +7,15 @@ services:
     container_name: backend
     build: ./
     command: npm start
-    working_dir: /usr/src/smart-branin-api
+    working_dir: /usr/src/smart-brain-api
     environment: 
       POSTGRES_URI: postgres://bombay:secret@postgres:5432/smart-brain-docker
+      REDIS_URI: redis://redis:6379
+    env_file: 
+      - ./.env
     links:
         - postgres
+        - redis
     ports: 
       - "3001:3001"
 
@@ -26,4 +30,11 @@ services:
     build: ./postgres
     ports: 
       - "5432:5432" 
+
   
+  # redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    

@@ -1,6 +1,6 @@
 FROM node:current-buster
 
-WORKDIR /usr/src/smart-branin-api
+WORKDIR /usr/src/smart-brain-api
 
 COPY ./ ./
 
